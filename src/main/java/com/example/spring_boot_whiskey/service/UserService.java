@@ -6,6 +6,7 @@ import com.example.spring_boot_whiskey.repository.UserRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.TransactionTimedOutException;
 
 @Service
 @RequiredArgsConstructor
@@ -18,8 +19,12 @@ public class UserService {
         return userMapper.toUserDto(userRepository.findAll());
     }
 
-    public void save(UserDto userDto){
+    public void save(UserDto userDto) {
         userRepository.save(userMapper.toUserEntity(userDto));
+    }
+
+    public void deleteById(Long id) {
+        userRepository.deleteById(id);
     }
 
 }
