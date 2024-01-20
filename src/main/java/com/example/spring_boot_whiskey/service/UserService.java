@@ -18,4 +18,8 @@ public class UserService {
         return userMapper.toUserDto(userRepository.findAll());
     }
 
+    public void save(UserDto userDto){
+        userRepository.save(userMapper.toUserEntity(userDto));
+    }
+
 }
