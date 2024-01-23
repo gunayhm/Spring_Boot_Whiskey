@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: addColumn-example
+      author: Gunay Hashimova
+      changes:
+        - addColumn:
+            schemaName: whiskey
+            tableName: persons
+            columns:
+              - column:
+                  name: middlename
+                  type: varchar(50)

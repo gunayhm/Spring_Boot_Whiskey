@@ -11,7 +11,7 @@ import org.mapstruct.ReportingPolicy;
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface UserMapper {
 
-    List<UserDto> toUserDto(List<UserEntity> userEntity);
+    List<UserDto> toUserDtos(List<UserEntity> userEntity);
 
     UserEntity toUserEntity(UserDto userDto);
 
