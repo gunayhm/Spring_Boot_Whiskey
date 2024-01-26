@@ -25,12 +25,14 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '4.1.0'
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.27'
     implementation 'org.springframework.boot:spring-boot-starter-amqp'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.2.1'
 
     implementation 'javax.servlet:javax.servlet-api:4.0.1'
+
+    implementation files('test/ms-products-whiskey.jar')
 
     // https://mvnrepository.com/artifact/org.liquibase/liquibase-core
     implementation group: 'org.liquibase', name: 'liquibase-core', version: '4.25.1'
