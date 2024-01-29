@@ -2,6 +2,7 @@ package com.example.spring_boot_whiskey.service;
 
 import com.example.spring_boot_whiskey.dto.UserDto;
 import com.example.spring_boot_whiskey.entity.UserEntity;
+import com.example.spring_boot_whiskey.exception.MyException;
 import com.example.spring_boot_whiskey.mapper.UserMapper;
 import com.example.spring_boot_whiskey.repository.UserRepository;
 import java.util.List;
@@ -19,7 +20,10 @@ public class UserService {
         return userMapper.toUserDtos(userRepository.findAll());
     }
 
-    public void save(UserDto userDto) {
+    public void save(UserDto userDto) throws MyException {
+        if (1 == 1) {
+            throw new MyException("My first exception !!!");
+        }
         userRepository.save(userMapper.toUserEntity(userDto));
     }
 
@@ -36,7 +40,8 @@ public class UserService {
     }
 
     public List<UserDto> findAllOrderByAge(Integer age) {
-        List<UserEntity> userEntities = userRepository.findUserEntitiesOrderByAgeGreaterThanOrderByAge(age);
+        List<UserEntity> userEntities =
+                userRepository.findUserEntitiesOrderByAgeGreaterThanOrderByAge(age);
         return userMapper.toUserDtos(userEntities);
     }
 

@@ -13,7 +13,7 @@ spring:
       ddl-auto: update
 
 server:
-  port: 1221
+  port: 4555
 
-api:
-  product: http://localhost:5555
+#api:
+#  product: http://localhost:5555

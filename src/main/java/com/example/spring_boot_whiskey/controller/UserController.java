@@ -2,6 +2,7 @@ package com.example.spring_boot_whiskey.controller;
 
 import com.example.spring_boot_whiskey.dto.UserDto;
 import com.example.spring_boot_whiskey.entity.UserEntity;
+import com.example.spring_boot_whiskey.exception.MyException;
 import com.example.spring_boot_whiskey.service.UserService;
 import jakarta.validation.Valid;
 import java.util.List;
@@ -28,7 +29,7 @@ public class UserController {
     }
 
     @PostMapping
-    public void save(@RequestBody @Valid UserDto userDto){
+    public void save(@RequestBody @Valid UserDto userDto) throws MyException {
         userService.save(userDto);
     }
 
