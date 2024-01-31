@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class MyScheduler {
 
-    @Scheduled(cron = "0 * * * * *")
-    public void myScheduler(){
-        System.out.println("Hello Whiskey !!!");
-    }
+//    @Scheduled(cron = "0 * * * * *")
+//    public void myScheduler(){
+//        System.out.println("Hello Whiskey !!!");
+//    }
 
 }
