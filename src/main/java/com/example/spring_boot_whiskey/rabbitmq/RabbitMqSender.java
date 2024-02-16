@@ -22,6 +22,7 @@ public class RabbitMqSender {
         rabbitTemplate.convertAndSend("myQueue", userDto);
         System.out.println("Sent '" + userDto + "' successfully !!!");
     }
+
 }
 
 

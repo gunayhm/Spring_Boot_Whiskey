@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,12 +28,12 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("getAll") // http://localhost:8080/users/getAll  GET
-    public List<UserDto> getAll(){
-        return userService.getAll();
+    public List<UserDto> getAll(@RequestHeader("my-header") String value){
+        return userService.getAll(value);
     }
 
     @PostMapping
-    public void save(@RequestBody @Valid UserDto userDto) throws MyException {
+    public void save(@RequestBody @Valid UserDto userDto) {
         userService.save(userDto);
     }
 

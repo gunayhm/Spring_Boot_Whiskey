@@ -10,16 +10,12 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
   rabbitmq:
     user: guest
     password: guest
     host: localhost
     port: 5672
 
-
 server:
   port: 4555
-
-#api:
-#  product: http://localhost:5555

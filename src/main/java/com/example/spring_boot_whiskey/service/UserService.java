@@ -2,6 +2,7 @@ package com.example.spring_boot_whiskey.service;
 
 import com.example.spring_boot_whiskey.dto.UserDto;
 import com.example.spring_boot_whiskey.entity.UserEntity;
+import com.example.spring_boot_whiskey.enumaration.MultiLang;
 import com.example.spring_boot_whiskey.exception.MyException;
 import com.example.spring_boot_whiskey.mapper.UserMapper;
 import com.example.spring_boot_whiskey.repository.UserRepository;
@@ -16,14 +17,12 @@ public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
-    public List<UserDto> getAll() {
+    public List<UserDto> getAll(String value) {
+        System.out.println(value);
         return userMapper.toUserDtos(userRepository.findAll());
     }
 
-    public void save(UserDto userDto) throws MyException {
-        if (1 == 1) {
-            throw new MyException("My first exception !!!");
-        }
+    public void save(UserDto userDto) {
         userRepository.save(userMapper.toUserEntity(userDto));
     }
 
@@ -33,6 +32,8 @@ public class UserService {
 
     public void updateById(Long id, UserDto userDto) {
         UserEntity userEntity = userRepository.findById(id).orElseThrow();
+
+        userMapper.toUserDto(userEntity);
 
         userEntity.setName(userDto.getName());
 
